@@ -17,23 +17,23 @@ const DataCards = ({ product }) => {
       <Card>
         <div className="position-relative">
           <NavLink to={`?p=${product.id}`} className="w-40 w-sm-100">
-            <CardImg top alt={product.title} src={product.img} />
+            <CardImg top alt={product.name} src={product.image} />
           </NavLink>
           <Badge
-            color={product.statusColor}
+            color="primary"
             pill
             className="position-absolute badge-top-left"
           >
-            {product.status}
+            {product.brand}
           </Badge>
         </div>
         <CardBody>
           <Row>
             <Colxx xxs="2"></Colxx>
             <Colxx xxs="10" className="mb-3">
-              <CardSubtitle>{product.title}</CardSubtitle>
+              <CardSubtitle>Name: {product.name}</CardSubtitle>
               <CardText className="text-muted text-small mb-0 font-weight-light">
-                {product.date}
+                Price: {product.price} $
               </CardText>
             </Colxx>
           </Row>

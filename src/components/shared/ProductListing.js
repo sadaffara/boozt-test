@@ -9,11 +9,11 @@ const ListPageListing = ({ items, currentPage, totalPage, onChangePage }) => {
       {items.map((product) => {
         return <DataCard key={product.id} product={product} />;
       })}
-      <Pagination
+      {/* <Pagination
         currentPage={currentPage}
         totalPage={totalPage}
         onChangePage={(i) => onChangePage(i)}
-      />
+      /> */}
     </Row>
   );
 };
