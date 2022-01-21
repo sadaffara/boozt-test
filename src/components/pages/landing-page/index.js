@@ -2,15 +2,16 @@ import {
   Row,
   Card,
   CardBody,
-  CardTitle,
   Button,
-  Modal,
   ModalHeader,
   ModalBody,
   ModalFooter,
 } from "reactstrap";
+import { useNavigate } from "react-router-dom";
 import { Colxx } from "components/common/Colxx";
 const LandingPage = () => {
+  const navigate = useNavigate();
+
   return (
     <div>
       <Row className="justify-content-center">
@@ -36,7 +37,14 @@ const LandingPage = () => {
               </ModalBody>
               <ModalFooter>
                 <Button color="primary">Dynamic List</Button>{" "}
-                <Button color="secondary">Static JSON</Button>
+                <Button
+                  onClick={() => {
+                    navigate("/static-list");
+                  }}
+                  color="secondary"
+                >
+                  Static JSON
+                </Button>
               </ModalFooter>
             </CardBody>
           </Card>

@@ -36,16 +36,15 @@ const TopNav = () => {
           >
             <DropdownToggle caret>View</DropdownToggle>
             <DropdownMenu>
+              <DropdownItem header> Dynamic View</DropdownItem>
               <DropdownItem
                 onClick={() => {
-                  navigate("/");
+                  navigate("/static-list");
                 }}
-                header
+                disabled
               >
-                {" "}
-                Dynamic View
+                Static View
               </DropdownItem>
-              <DropdownItem disabled>Static View</DropdownItem>
             </DropdownMenu>
           </Dropdown>
         </Colxx>
