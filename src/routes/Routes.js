@@ -3,15 +3,17 @@ import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 import Loading from "components/common/Loading";
 
 const LandingPage = React.lazy(() => import("components/pages/landing-page"));
+// const DynamicProductList = React.lazy(() => import("components/pages/landing-page"));
+// const StaticProductList = React.lazy(() => import("components/pages/landing-page"));
 
 const AppRoutes = () => {
   return (
     <Suspense fallback={<Loading />}>
-      <Router>
-        <Routes>
-          <Route path="/" element={<LandingPage />}></Route>
-        </Routes>
-      </Router>
+      <Routes>
+        <Route path="/" element={<LandingPage />}></Route>
+        {/* <Route path="/" element={<LandingPage />}></Route>
+        <Route path="/" element={<LandingPage />}></Route> */}
+      </Routes>
     </Suspense>
   );
 };

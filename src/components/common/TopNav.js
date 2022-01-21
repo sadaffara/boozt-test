@@ -1,22 +1,53 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
 import BooztLogo from "assets/images/BooztLogo.png";
-import { Row, Col } from "reactstrap";
+import {
+  Row,
+  Dropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+} from "reactstrap";
 import { Colxx } from "./Colxx";
-function TopNav() {
+import { useHistory } from "react-router-dom";
+
+const TopNav = () => {
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const history = useHistory();
+
   return (
-    <div class="topnav">
+    <div className=" topnav">
       <Row>
-        <Col lg={2} md={2}>
+        <Colxx lg={2} md={2} sm={4} xs={4} xxs={6}>
           <span className="top-title">Boozt Test</span>
-        </Col>
-        <Col lg={9} md={9}>
-          <Link to={"https://www.booztgroup.com/"}>
-            <img className="logo" src={BooztLogo} alt="Boozt" />
-          </Link>
-        </Col>
+        </Colxx>
+        <Colxx className="mb-2" lg={8} md={8} sm={4} xs={4} xxs={6}>
+          <Dropdown
+            group
+            isOpen={dropdownOpen}
+            size="sm"
+            toggle={() => setDropdownOpen(!dropdownOpen)}
+          >
+            <DropdownToggle caret>View</DropdownToggle>
+            <DropdownMenu>
+              <DropdownItem
+                onClick={() => {
+                  history.push("");
+                }}
+                header
+              >
+                {" "}
+                Dynamic View
+              </DropdownItem>
+              <DropdownItem disabled>Static View</DropdownItem>
+            </DropdownMenu>
+          </Dropdown>
+        </Colxx>
+        <Colxx lg={2} md={2} sm={4} xs={4} xxs={12}>
+          <img className="logo" src={BooztLogo} alt="Boozt" />
+        </Colxx>
       </Row>
     </div>
   );
-}
+};
 
 export default TopNav;

@@ -1,12 +1,15 @@
-import TopNav from "components/common/TopNav";
-
+import { Row, Card, CardBody } from "reactstrap";
+import { Colxx } from "components/common/Colxx";
 const LandingPage = () => {
   return (
     <div>
-      <TopNav />
-      <div className="container-fluid mt-4 content--pos mt-1">
-        Landing Page...
-      </div>
+      <Row className="justify-content-center">
+        <Colxx>
+          <Card>
+            <CardBody>Content</CardBody>
+          </Card>
+        </Colxx>
+      </Row>
     </div>
   );
 };
