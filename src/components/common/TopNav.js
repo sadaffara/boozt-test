@@ -8,11 +8,11 @@ import {
   DropdownItem,
 } from "reactstrap";
 import { Colxx } from "./Colxx";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const TopNav = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const history = useHistory();
+  const navigate = useNavigate();
 
   return (
     <div className=" topnav">
@@ -31,7 +31,7 @@ const TopNav = () => {
             <DropdownMenu>
               <DropdownItem
                 onClick={() => {
-                  history.push("");
+                  navigate("/");
                 }}
                 header
               >
