@@ -1,2 +1,2 @@
-export const BaseURL = "https://fakestoreapi.com/";
-export const GET_ALL_PRODUCTS = "products";
+export const BaseURL = "https://api.coloredstrategies.com";
+export const GET_ALL_PRODUCTS = "/cakes/paging";
