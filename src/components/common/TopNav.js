@@ -18,7 +18,14 @@ const TopNav = () => {
     <div className=" topnav">
       <Row>
         <Colxx lg={2} md={2} sm={4} xs={4} xxs={6}>
-          <span className="top-title">Boozt Test</span>
+          <span
+            onClick={() => {
+              window.open("https://github.com/sadaffara/boozt-test", "_blank");
+            }}
+            className="top-title cursor--pointer"
+          >
+            Boozt Test
+          </span>
         </Colxx>
         <Colxx className="mb-2" lg={8} md={8} sm={4} xs={4} xxs={6}>
           <Dropdown
@@ -43,7 +50,14 @@ const TopNav = () => {
           </Dropdown>
         </Colxx>
         <Colxx lg={2} md={2} sm={4} xs={4} xxs={12}>
-          <img className="logo" src={BooztLogo} alt="Boozt" />
+          <img
+            onClick={() => {
+              window.open("https://booztgroup.com", "_blank");
+            }}
+            className="logo cursor--pointer"
+            src={BooztLogo}
+            alt="Boozt"
+          />
         </Colxx>
       </Row>
     </div>
