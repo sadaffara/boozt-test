@@ -22,10 +22,12 @@ const LandingPage = () => {
               </ModalHeader>
               <ModalBody>
                 <p>I implemented the product list in 2 different ways:</p>
-                <p>1. Using the statis product_list.json file you sent to me</p>
                 <p>
-                  2. Using a mock API to fetch products from a server and use
-                  them to create a list
+                  1. Using the statis product_list.json file that was sent to me
+                </p>
+                <p>
+                  2. Using a mock API to fetch products from a server and
+                  creating a list with the respone
                 </p>
                 <p>
                   You can choose which view you would like to see, and you can
