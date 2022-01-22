@@ -1,3 +1,7 @@
+.card {
+  border-radius: 10px !important;
+}
+
 .badge {
   padding: 0.55em 0.75em 0.6em 0.75em;
   font-size: 74%;
@@ -30,4 +34,13 @@
     top: 40px;
     right: -7px;
   }
+}
+
+.price--color {
+  color: rgb(92, 130, 201);
+  font-weight: bold;
+}
+
+.img--card__padding {
+  padding: 1rem 1rem;
 }
