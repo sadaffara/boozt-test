@@ -65,33 +65,18 @@ const StaticView = ({ match }) => {
   ) : (
     <>
       <div className="disable-text-selection">
-        {/* <ProductHeading
+        <ProductHeading
           heading="menu.image-list"
-          displayMode={displayMode}
-          changeDisplayMode={setDisplayMode}
-          changeOrderBy={(column) => {
-            setSelectedOrderOption(
-              orderOptions.find((x) => x.column === column)
-            );
-          }}
           changePageSize={setSelectedPageSize}
           selectedPageSize={selectedPageSize}
           totalItemCount={totalItemCount}
-          selectedOrderOption={selectedOrderOption}
           match={match}
           startIndex={startIndex}
           endIndex={endIndex}
           selectedItemsLength={selectedItems ? selectedItems.length : 0}
           itemsLength={items ? items.length : 0}
-          onSearchKey={(e) => {
-            if (e.key === "Enter") {
-              setSearch(e.target.value.toLowerCase());
-            }
-          }}
-          orderOptions={orderOptions}
           pageSizes={pageSizes}
-          toggleModal={() => setModalOpen(!modalOpen)}
-        /> */}
+        />
 
         <ProductListing
           items={items}

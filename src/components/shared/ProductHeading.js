@@ -18,20 +18,15 @@ const ListPageHeading = ({
   startIndex,
   endIndex,
   pageSizes,
-  toggleModal,
-  addBtnTitle,
-  onSearchClick,
 }) => {
   const [displayOptionsIsOpen, setDisplayOptionsIsOpen] = useState(false);
   const [keyword, setKeyword] = useState("");
-
-  const { messages } = intl;
 
   return (
     <Row>
       <Colxx xxs="12">
         <div className="mb-2">
-          <h1>Title</h1>
+          <h3>Product List</h3>
 
           <div className="text-zero top-right-button-container"></div>
         </div>

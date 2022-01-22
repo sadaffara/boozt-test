@@ -12,7 +12,7 @@ import { Colxx } from "components/common/Colxx";
 
 const DataCards = ({ product }) => {
   return (
-    <Colxx sm="6" lg="4" xl="3" className="mb-3" key={product.id}>
+    <Colxx cla sm="6" lg="4" xl="3" className="mb-3 mt-4" key={product.id}>
       <Card>
         <div className="position-relative img--card__padding">
           <div className=" w-50 w-sm-100">
