@@ -1,3 +1,6 @@
+@import "bootstrap/dist/css/bootstrap.css";
 @import "vendors/bootstrap.min.css";
 @import "core/layout.scss";
 @import "core/componens.scss";
+@import "core/width-spacing.scss";
+@import "./mixins.scss";

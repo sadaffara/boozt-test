@@ -59,8 +59,8 @@ const StaticView = ({ match }) => {
 
   return !isLoaded ? (
     <Row className="justify-content-center">
-      <Spinner />
-      <h5>Loading Product List</h5>
+      <Spinner animation="border" role="status" />
+      <h5 className="row justify-content-center mt-2">Loading Product List</h5>
     </Row>
   ) : (
     <>

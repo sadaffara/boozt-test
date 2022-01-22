@@ -16,9 +16,9 @@ const DataCards = ({ product }) => {
     <Colxx sm="6" lg="4" xl="3" className="mb-3" key={product.id}>
       <Card>
         <div className="position-relative">
-          <NavLink to={`?p=${product.id}`} className="w-40 w-sm-100">
+          <div className=" w-50 w-sm-100">
             <CardImg top alt={product.name} src={product.image} />
-          </NavLink>
+          </div>
           <Badge
             color="primary"
             pill
@@ -29,7 +29,6 @@ const DataCards = ({ product }) => {
         </div>
         <CardBody>
           <Row>
-            <Colxx xxs="2"></Colxx>
             <Colxx xxs="10" className="mb-3">
               <CardSubtitle>Name: {product.name}</CardSubtitle>
               <CardText className="text-muted text-small mb-0 font-weight-light">
