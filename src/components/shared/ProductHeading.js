@@ -20,7 +20,6 @@ const ListPageHeading = ({
   pageSizes,
 }) => {
   const [displayOptionsIsOpen, setDisplayOptionsIsOpen] = useState(false);
-  const [keyword, setKeyword] = useState("");
 
   return (
     <Row>

@@ -4,33 +4,20 @@ import ProductListing from "components/shared/ProductListing";
 import data from "assets/data/productList.json";
 import { Spinner, Row } from "reactstrap";
 
-const orderOptions = [
-  { column: "title", label: "Product Name" },
-  { column: "category", label: "Category" },
-  { column: "status", label: "Status" },
-];
 const pageSizes = [4, 8, 12, 20];
 
 const StaticView = ({ match }) => {
   const [isLoaded, setIsLoaded] = useState(false);
-  const [displayMode, setDisplayMode] = useState("imagelist");
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedPageSize, setSelectedPageSize] = useState(8);
-  const [selectedOrderOption, setSelectedOrderOption] = useState({
-    column: "title",
-    label: "Product Name",
-  });
-
-  const [modalOpen, setModalOpen] = useState(false);
   const [totalItemCount, setTotalItemCount] = useState(data.length);
   const [totalPage, setTotalPage] = useState(1);
-  const [search, setSearch] = useState("");
   const [selectedItems, setSelectedItems] = useState([]);
   const [items, setItems] = useState([]);
 
   useEffect(() => {
     setCurrentPage(1);
-  }, [selectedPageSize, selectedOrderOption]);
+  }, [selectedPageSize]);
 
   useEffect(() => {
     async function fetchData() {
@@ -47,12 +34,12 @@ const StaticView = ({ match }) => {
         );
         _items = _items.slice(currentPage - 1, 10);
         setItems(_items);
-        // setTotalPage(data.totalPage);
+        setTotalPage(data.totalPage);
         setIsLoaded(true);
       }, 1000);
     }
     fetchData();
-  }, [selectedPageSize, currentPage, selectedOrderOption, search]);
+  }, [selectedPageSize, currentPage]);
 
   const startIndex = (currentPage - 1) * selectedPageSize;
   const endIndex = currentPage * selectedPageSize;
@@ -80,7 +67,6 @@ const StaticView = ({ match }) => {
 
         <ProductListing
           items={items}
-          displayMode={displayMode}
           selectedItems={selectedItems}
           currentPage={currentPage}
           totalPage={totalPage}
