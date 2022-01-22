@@ -33,7 +33,9 @@ const ListPageHeading = ({
             color="empty"
             className="pt-0 pl-0 d-inline-block d-md-none"
             onClick={() => setDisplayOptionsIsOpen(!displayOptionsIsOpen)}
-          ></Button>
+          >
+            <DropdownToggle caret color="secondary" size="xs"></DropdownToggle>
+          </Button>
           <Collapse
             isOpen={displayOptionsIsOpen}
             className="d-md-block"
