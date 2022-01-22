@@ -39,7 +39,6 @@ const Pagination = ({
   return totalPage > 1 ? (
     <Colxx xxs="12" className="mt-3 mb-3">
       <Nav className="pagination justify-content-center">
-        ddd
         {firstIsActive && (
           <NavItem className={`page-item ${firstPageButtonClassName}`}>
             <NavLink

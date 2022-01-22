@@ -11,13 +11,13 @@ import {
 import { Colxx, Separator } from "components/common/Colxx";
 
 const ListPageHeading = ({
-  intl,
   changePageSize,
   selectedPageSize,
   totalItemCount,
   startIndex,
   endIndex,
   pageSizes,
+  fetchData,
 }) => {
   const [displayOptionsIsOpen, setDisplayOptionsIsOpen] = useState(false);
 
@@ -26,10 +26,8 @@ const ListPageHeading = ({
       <Colxx xxs="12">
         <div className="mb-2">
           <h3>Product List</h3>
-
-          <div className="text-zero top-right-button-container"></div>
         </div>
-
+        <Separator />
         <div className="mb-2">
           <Button
             color="empty"
@@ -41,6 +39,24 @@ const ListPageHeading = ({
             className="d-md-block"
             id="displayOptions"
           >
+            <div className="d-block d-md-inline-block pt-1">
+              <UncontrolledDropdown className="mr-1 float-md-left btn-group mb-1">
+                <DropdownToggle caret color="primary" size="xs">
+                  Sort
+                </DropdownToggle>
+                <DropdownMenu right>
+                  <DropdownItem onClick={() => fetchData(true, true)}>
+                    Ascending
+                  </DropdownItem>
+                  <DropdownItem onClick={() => fetchData(true, false)}>
+                    Descending
+                  </DropdownItem>
+                  <DropdownItem onClick={() => fetchData(false, true)}>
+                    All Results
+                  </DropdownItem>
+                </DropdownMenu>
+              </UncontrolledDropdown>
+            </div>
             <div className="float-md-right pt-1">
               <span className="text-muted text-small mr-1">{`${startIndex}-${endIndex} of ${totalItemCount} `}</span>
               <UncontrolledDropdown className="d-inline-block">
