@@ -7,6 +7,7 @@ import {
   DropdownItem,
   DropdownToggle,
   Collapse,
+  Badge,
 } from "reactstrap";
 import { Colxx, Separator } from "components/common/Colxx";
 
@@ -18,12 +19,15 @@ const ListPageHeading = ({
   endIndex,
   pageSizes,
   fetchData,
+  sorted,
+  setSorted,
 }) => {
   const [displayOptionsIsOpen, setDisplayOptionsIsOpen] = useState(false);
 
   return (
     <Row>
       <Colxx xxs="12">
+        {console.log("sorted", sorted)}
         <div className="mb-2">
           <h3>Product List</h3>
         </div>
@@ -44,16 +48,31 @@ const ListPageHeading = ({
             <div className="d-block d-md-inline-block pt-1">
               <UncontrolledDropdown className="mr-1 float-md-left btn-group mb-1">
                 <DropdownToggle caret color="primary" size="xs">
-                  Sort By Price
+                  Sort By Price: {sorted}
                 </DropdownToggle>
                 <DropdownMenu right>
-                  <DropdownItem onClick={() => fetchData(true, true)}>
+                  <DropdownItem
+                    onClick={() => {
+                      setSorted("Asc");
+                      fetchData(true, true);
+                    }}
+                  >
                     Ascending
                   </DropdownItem>
-                  <DropdownItem onClick={() => fetchData(true, false)}>
+                  <DropdownItem
+                    onClick={() => {
+                      setSorted("Desc");
+                      fetchData(true, false);
+                    }}
+                  >
                     Descending
                   </DropdownItem>
-                  <DropdownItem onClick={() => fetchData(false, true)}>
+                  <DropdownItem
+                    onClick={() => {
+                      setSorted("All");
+                      fetchData(false, true);
+                    }}
+                  >
                     All Results
                   </DropdownItem>
                 </DropdownMenu>
