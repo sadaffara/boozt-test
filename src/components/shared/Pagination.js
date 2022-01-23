@@ -45,7 +45,8 @@ const Pagination = ({
               className="page-link first c-pointer"
               onClick={() => onChangePage(1)}
             >
-              play icon
+              <span className="arrow left" />
+              <span className="arrow left" />
             </NavLink>
           </NavItem>
         )}
@@ -54,7 +55,7 @@ const Pagination = ({
             className="page-link prev c-pointer"
             onClick={() => onChangePage(currentPage - 1)}
           >
-            left icon
+            <span className="arrow left" />
           </NavLink>
         </NavItem>
         {points.map((i) => {
@@ -77,7 +78,7 @@ const Pagination = ({
             className="page-link next c-pointer"
             onClick={() => onChangePage(currentPage + 1)}
           >
-            right icon
+            <span className="arrow right" />
           </NavLink>
         </NavItem>
         {lastIsActive && (
@@ -86,7 +87,8 @@ const Pagination = ({
               className="page-link last c-pointer"
               onClick={() => onChangePage(totalPage)}
             >
-              play icon
+              <span className="arrow right" />
+              <span className="arrow right" />
             </NavLink>
           </NavItem>
         )}
