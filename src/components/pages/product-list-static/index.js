@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import ProductHeading from "components/shared/ProductHeading";
 import ProductListing from "components/shared/ProductListing";
 import data from "assets/data/productList.json";
-import { Spinner, Row } from "reactstrap";
+import Loading from "components/common/Loading";
 
-const pageSizes = [4, 8, 12, 16];
+const pageSizes = [4, 10, 12, 16];
 
 const StaticView = ({ match }) => {
   const totalItemCount = data.length;
@@ -15,31 +15,37 @@ const StaticView = ({ match }) => {
   const [items, setItems] = useState([]);
   const [sortedData, setSortedData] = useState(data);
   const [sorted, setSorted] = useState("All");
+  const [sortMode, setSortMode] = useState(false);
 
   useEffect(() => {
     setCurrentPage(1);
   }, [selectedPageSize]);
 
   useEffect(() => {
-    fetchData(false, true, selectedPageSize, currentPage);
-  }, [selectedPageSize, currentPage]);
+    fetchData(false, true, selectedPageSize, currentPage, sortMode);
+  }, [selectedPageSize, currentPage, sortMode]);
 
   async function fetchData(
     sort = false,
-    asc = true,
+    asc = "All",
     _pageSize = selectedPageSize,
     _pageNumber = currentPage
   ) {
+    console.log("sort", sort);
     setLoading(true);
+    setSortMode(sort);
     setSelectedPageSize(_pageSize);
     setCurrentPage(_pageNumber);
     setTimeout(() => {
-      let _items = createItems(_pageNumber, _pageSize);
+      let _items = [];
       if (sort) {
         _items = sortItems(asc, _pageSize);
       } else {
-        setSorted("All");
-        setSortedData(data);
+        if (sort) {
+          _items = createItems(_pageNumber, _pageSize, sortedData);
+        } else {
+          _items = createItems(_pageNumber, _pageSize, data);
+        }
       }
       setItems(_items);
       setTotalPage(data.length / _pageSize);
@@ -49,7 +55,7 @@ const StaticView = ({ match }) => {
 
   const sortItems = (asc, _pageSize) => {
     let _items = [];
-    data.map((item, i) =>
+    data.map((item) =>
       _items.push({
         index: item.index,
         id: item.id,
@@ -60,7 +66,7 @@ const StaticView = ({ match }) => {
       })
     );
     _items.sort((a, b) => {
-      if (asc) {
+      if (asc === "Asc") {
         setSorted("Asc");
         return a.price - b.price;
       } else {
@@ -73,8 +79,8 @@ const StaticView = ({ match }) => {
     return _items;
   };
 
-  const createItems = (_pageNumber, _pageSize) => {
-    let allData = sortedData;
+  const createItems = (_pageNumber, _pageSize, _sortedData) => {
+    let allData = _sortedData;
     let currentIndex = (_pageNumber - 1) * _pageSize;
     let pageData = allData.slice(currentIndex, currentIndex + _pageSize);
     let _items = [];
@@ -94,12 +100,7 @@ const StaticView = ({ match }) => {
   const startIndex = (currentPage - 1) * selectedPageSize;
   const endIndex = currentPage * selectedPageSize;
 
-  return loading ? (
-    <Row className="justify-content-center">
-      <Spinner animation="border" role="status" />
-      <h5 className="row justify-content-center mt-2">Loading Product List</h5>
-    </Row>
-  ) : (
+  return (
     <div className="disable-text-selection">
       <ProductHeading
         fetchData={(sort, asc) => fetchData(sort, asc, selectedPageSize, 1)}
@@ -114,13 +115,20 @@ const StaticView = ({ match }) => {
         pageSizes={pageSizes}
         sorted={sorted}
         setSorted={(sortStatus) => setSorted(sortStatus)}
+        setSortMode={(_sortMode) => setSortMode(_sortMode)}
       />
-      <ProductListing
-        items={items}
-        currentPage={currentPage}
-        totalPage={totalPage}
-        onChangePage={setCurrentPage}
-      />
+      {loading ? (
+        <Loading label="Loading Product List" />
+      ) : (
+        <ProductListing
+          items={items}
+          currentPage={currentPage}
+          totalPage={totalPage}
+          onChangePage={(page) => {
+            fetchData(sortMode, sorted, selectedPageSize, page);
+          }}
+        />
+      )}
     </div>
   );
 };

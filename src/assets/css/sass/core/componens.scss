@@ -1,3 +1,5 @@
+@import "../variables.scss";
+
 .card {
   border-radius: 10px !important;
 }
@@ -41,6 +43,75 @@
   font-weight: bold;
 }
 
-.img--card__padding {
-  padding: 1rem 1rem;
+.card--shadow:hover {
+  cursor: pointer;
+  box-shadow: 0 4px 8px 0 rgba(197, 193, 193, 0.2),
+    0 6px 20px 0 rgba(192, 188, 188, 0.2);
+}
+
+.img--card {
+  transition: 0.3s;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.img--card__container {
+  padding: 2px 16px;
+}
+
+.bg-primary {
+  background-color: $primary-color !important;
+}
+
+.page-item.active .page-link {
+  background-color: $primary-color !important;
+  border-color: $border-color;
+  color: white;
+}
+
+.btn {
+  background-color: $primary-color;
+  outline: initial !important;
+  border-color: $border-color;
+  color: #fff;
+}
+
+.btn:hover {
+  background-color: $hover-color;
+  border-color: $border-color;
+  color: #fff;
+}
+
+.page-link:hover {
+  background-color: $light-hover-color;
+  border-color: $border-color;
+  color: #fff;
+}
+
+.dropdown-item:hover {
+  background-color: $light-hover-color;
+}
+
+.btn:focus,
+.btn-primary:not(:disabled):not(.disabled):active
+  .show
+  > .btn-primary.dropdown-toggle,
+.show > .btn-primary.dropdown-toggle:focus,
+.show > .btn-primary.dropdown-toggle:focus,
+.btn-outline-dark:not(:disabled):not(.disabled):active,
+.btn-outline-dark:not(:disabled):not(.disabled).active,
+.show > .btn-outline-dark.dropdown-toggle,
+.show > .btn-outline-dark.dropdown-toggle:focus,
+.btn-primary:not(:disabled):not(.disabled):active,
+.show > .btn-primary.dropdown-toggle,
+.btn-primary:not(:disabled):not(.disabled):active {
+  background-color: $visited-color;
+  border-color: $border-color;
+  box-shadow: 0 0 0 0.2rem rgba(255, 179, 38, 0.5);
+  border-color: $border-color;
+}
+
+.btn:active {
+  background-color: $visited-color;
+  border-color: $border-color;
 }

@@ -4,3 +4,8 @@
 @import "core/componens.scss";
 @import "core/width-spacing.scss";
 @import "./mixins.scss";
+@import "./variables.scss";
+
+:root {
+  --primary-color: #{$primary-color};
+}

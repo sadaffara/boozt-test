@@ -37,7 +37,7 @@ const Pagination = ({
   const prevPageButtonClassName = currentPage <= 1 ? "disabled" : "";
   const nextPageButtonClassName = currentPage >= totalPage ? "disabled" : "";
   return totalPage > 1 ? (
-    <Colxx xxs="12" className="mt-3 mb-3">
+    <Colxx xxs="12" className="mt-3 mb-3 cursor--pointer">
       <Nav className="pagination justify-content-center">
         {firstIsActive && (
           <NavItem className={`page-item ${firstPageButtonClassName}`}>

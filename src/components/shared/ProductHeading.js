@@ -7,7 +7,6 @@ import {
   DropdownItem,
   DropdownToggle,
   Collapse,
-  Badge,
 } from "reactstrap";
 import { Colxx, Separator } from "components/common/Colxx";
 
@@ -21,6 +20,7 @@ const ListPageHeading = ({
   fetchData,
   sorted,
   setSorted,
+  setSortMode,
 }) => {
   const [displayOptionsIsOpen, setDisplayOptionsIsOpen] = useState(false);
 
@@ -50,11 +50,12 @@ const ListPageHeading = ({
                 <DropdownToggle caret color="primary" size="xs">
                   Sort By Price: {sorted}
                 </DropdownToggle>
-                <DropdownMenu right>
+                <DropdownMenu end>
                   <DropdownItem
                     onClick={() => {
                       setSorted("Asc");
-                      fetchData(true, true);
+                      setSortMode(true);
+                      fetchData(true, "Asc");
                     }}
                   >
                     Ascending
@@ -62,7 +63,8 @@ const ListPageHeading = ({
                   <DropdownItem
                     onClick={() => {
                       setSorted("Desc");
-                      fetchData(true, false);
+                      setSortMode(true);
+                      fetchData(true, "Desc");
                     }}
                   >
                     Descending
@@ -70,7 +72,8 @@ const ListPageHeading = ({
                   <DropdownItem
                     onClick={() => {
                       setSorted("All");
-                      fetchData(false, true);
+                      setSortMode(false);
+                      fetchData(false, "All");
                     }}
                   >
                     All Results
@@ -84,7 +87,7 @@ const ListPageHeading = ({
                 <DropdownToggle caret color="outline-dark" size="xs">
                   {selectedPageSize}
                 </DropdownToggle>
-                <DropdownMenu right>
+                <DropdownMenu end>
                   {pageSizes.map((size, index) => {
                     return (
                       <DropdownItem
