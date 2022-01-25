@@ -9,7 +9,7 @@ const StaticProductList = React.lazy(() =>
 const AppRoutes = () => {
   return (
     <Suspense fallback={<Loading />}>
-      <Routes>
+      <Routes basename="/boozt-test">
         <Route path="/" element={<StaticProductList />}></Route>
       </Routes>
     </Suspense>
