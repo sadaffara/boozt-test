@@ -9,25 +9,24 @@ import {
   Collapse,
 } from "reactstrap";
 import { Colxx, Separator } from "components/common/Colxx";
+import { SortModes } from "assets/constants/DefaultValues";
+import { findSortModeName } from "helpers/functions";
 
-const ListPageHeading = ({
+const ProductHeading = ({
   changePageSize,
   selectedPageSize,
   totalItemCount,
   startIndex,
   endIndex,
   pageSizes,
-  fetchData,
-  sorted,
-  setSorted,
-  setSortMode,
+  sortProducts,
+  sortMode,
 }) => {
   const [displayOptionsIsOpen, setDisplayOptionsIsOpen] = useState(false);
 
   return (
     <Row>
       <Colxx xxs="12">
-        {console.log("sorted", sorted)}
         <div className="mb-2">
           <h3>Product List</h3>
         </div>
@@ -48,36 +47,19 @@ const ListPageHeading = ({
             <div className="d-block d-md-inline-block pt-1">
               <UncontrolledDropdown className="mr-1 float-md-left btn-group mb-1">
                 <DropdownToggle caret color="primary" size="xs">
-                  Sort By Price: {sorted}
+                  Sort By Price: {findSortModeName(sortMode)}
                 </DropdownToggle>
                 <DropdownMenu end>
-                  <DropdownItem
-                    onClick={() => {
-                      setSorted("Asc");
-                      setSortMode(true);
-                      fetchData(true, "Asc");
-                    }}
-                  >
-                    Ascending
-                  </DropdownItem>
-                  <DropdownItem
-                    onClick={() => {
-                      setSorted("Desc");
-                      setSortMode(true);
-                      fetchData(true, "Desc");
-                    }}
-                  >
-                    Descending
-                  </DropdownItem>
-                  <DropdownItem
-                    onClick={() => {
-                      setSorted("All");
-                      setSortMode(false);
-                      fetchData(false, "All");
-                    }}
-                  >
-                    All Results
-                  </DropdownItem>
+                  {SortModes.map((item) => (
+                    <DropdownItem
+                      key={item.type}
+                      onClick={() => {
+                        sortProducts(item.type);
+                      }}
+                    >
+                      {item.fullName}
+                    </DropdownItem>
+                  ))}
                 </DropdownMenu>
               </UncontrolledDropdown>
             </div>
@@ -109,4 +91,4 @@ const ListPageHeading = ({
   );
 };
 
-export default ListPageHeading;
+export default ProductHeading;

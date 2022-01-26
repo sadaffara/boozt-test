@@ -22,7 +22,10 @@ const DataCards = ({ product }) => {
                 {product.brand}
               </Badge>
               <div className="img--card__container">
-                <CardSubtitle> Product Name: {product.name}</CardSubtitle>
+                <CardSubtitle className="card--name__height">
+                  {" "}
+                  Product Name: {product.name}
+                </CardSubtitle>
                 <CardText className="text-muted text-small mb-0 font-weight-light">
                   Price: {product.price}{" "}
                   <span className="price--color"> $</span>
