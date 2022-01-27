@@ -27,6 +27,7 @@ const StaticView = () => {
       <ProductHeading
         sortProducts={(sort) => {
           // fetchData(sort, selectedPageSize, DefaultPageNumber);
+          setCurrentPage(1);
           setSortMode(sort);
         }}
         changePageSize={(_pageSize) => setSelectedPageSize(_pageSize)}

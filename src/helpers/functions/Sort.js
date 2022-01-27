@@ -1,7 +1,8 @@
 import { SortModes } from "assets/constants/DefaultValues";
 
 export const sortItems = (sortMode, data) => {
-  const SoretdData = data.sort((a, b) => {
+  let _data = data;
+  let SoretdData = _data.sort((a, b) => {
     if (sortMode === SortModes[1].type) {
       return parseFloat(a.base_price) - parseFloat(b.base_price);
     } else {

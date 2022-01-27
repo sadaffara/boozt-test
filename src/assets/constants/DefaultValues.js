@@ -19,4 +19,21 @@ export const SortModes = [
     fullName: "Descending",
   },
 ];
+export const SortModes1 = {
+  all: {
+    name: "All",
+    type: 0,
+    fullName: "All Results",
+  },
+  asc: {
+    name: "Asc",
+    type: 1,
+    fullName: "Ascending",
+  },
+  dec: {
+    name: "Desc",
+    type: -1,
+    fullName: "Descending",
+  },
+};
 export const DefaultPageNumber = 1;
