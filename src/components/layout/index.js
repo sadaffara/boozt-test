@@ -2,7 +2,6 @@ import AppRoutes from "routes/Routes";
 import TopNav from "components/common/TopNav";
 import { Row, Card, CardBody } from "reactstrap";
 import { Colxx } from "components/common/Colxx";
-import Home from "components/pages/product-list-static";
 function MainLayout() {
   return (
     <div className="background--color">
@@ -14,7 +13,7 @@ function MainLayout() {
               <Colxx>
                 <Card>
                   <CardBody>
-                    <Home />
+                    <AppRoutes />
                   </CardBody>
                 </Card>
               </Colxx>
