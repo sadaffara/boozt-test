@@ -1,5 +1,5 @@
-import createItems from "./CreateProductsData";
+import handlePaging from "./HandlePaging";
 import { sortItems, findSortModeName } from "./Sort";
 import copyData from "./CopyData";
 
-export { createItems, sortItems, findSortModeName, copyData };
+export { handlePaging, sortItems, findSortModeName, copyData };

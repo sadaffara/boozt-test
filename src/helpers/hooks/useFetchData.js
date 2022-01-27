@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { createItems, sortItems } from "helpers/functions";
+import { handlePaging, sortItems } from "helpers/functions";
 import {
   TotalItemCount,
   PageSizes,
@@ -21,7 +21,7 @@ const useFetchData = (
       setLoading(true);
       setTimeout(() => {
         let allData = sortItems(_sortMode);
-        setItems(createItems(_pageNumber, _pageSize, allData));
+        setItems(handlePaging(_pageNumber, _pageSize, allData));
         setTotalPage(TotalItemCount / _pageSize);
         setLoading(false);
       }, 1000);
