@@ -1,7 +1,6 @@
 import React from "react";
 import { Row, Card, CardBody, CardSubtitle, CardText, Badge } from "reactstrap";
 import { Colxx } from "components/common/Colxx";
-
 const DataCards = ({ product }) => {
   return (
     <Colxx cla sm="6" lg="4" xl="3" className="mb-3 " key={product.id}>
@@ -11,7 +10,11 @@ const DataCards = ({ product }) => {
             <div className="img--card">
               <Row className="justify-content-center">
                 <Colxx lg={8} md={6} sm={6} xs={6} xxs={8}>
-                  <img alt={product.name} src={product.image} width={"100%"} />
+                  <img
+                    alt={product.name}
+                    src={product.filename}
+                    width={"100%"}
+                  />
                 </Colxx>
               </Row>
               <Badge
@@ -19,15 +22,15 @@ const DataCards = ({ product }) => {
                 pill
                 className="position-absolute badge-top-left"
               >
-                {product.brand}
+                {product.brand_name}
               </Badge>
               <div className="img--card__container">
                 <CardSubtitle className="card--name__height">
                   {" "}
-                  Product Name: {product.name}
+                  Product Name: {product.product_name}
                 </CardSubtitle>
                 <CardText className="text-muted text-small mb-0 font-weight-light">
-                  Price: {product.price}{" "}
+                  Price: {product.base_price}{" "}
                   <span className="price--color"> $</span>
                 </CardText>
                 <CardText className="text-muted fw text-small mb-0 font-weight-light">

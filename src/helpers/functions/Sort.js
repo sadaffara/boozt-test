@@ -1,36 +1,20 @@
-import data from "assets/data/productList.json";
 import { SortModes } from "assets/constants/DefaultValues";
 
-export const sortItems = (asc, _pageSize) => {
-  let _items = [];
-  data.map((item) =>
-    _items.push({
-      index: item.index,
-      id: item.id,
-      name: item.product_name,
-      brand: item.brand_name,
-      price: item.base_price,
-      image: item.filename,
-    })
-  );
-  _items.sort((a, b) => {
-    if (asc === "Asc") {
-      return a.price - b.price;
+export const sortItems = (sortMode, data) => {
+  const SoretdData = data.sort((a, b) => {
+    if (sortMode === SortModes[1].type) {
+      return parseFloat(a.base_price) - parseFloat(b.base_price);
     } else {
-      return b.price - a.price;
+      return parseFloat(b.base_price) - parseFloat(a.base_price);
     }
   });
-  // setSortedData(_items);
-  // _items = _items.slice(0, _pageSize);
-  // setSortMode(false);
-  // console.log("sorted items", _items);
-  return _items;
+  return SoretdData;
 };
 
 export const findSortModeName = (type) => {
   for (let i = 0; i <= SortModes.length; i++) {
     if (type === SortModes[i].type) {
-      return SortModes.name;
+      return SortModes[i].name;
     }
   }
 };

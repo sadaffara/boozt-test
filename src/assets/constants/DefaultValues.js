@@ -1,6 +1,6 @@
-import data from "assets/data/productList.json";
+import { data } from "assets/data/productList";
 
-export const PageSizes = [4, 8, 12, 16];
+export const PageSizes = [4, 10, 12, 16];
 export const TotalItemCount = data.length;
 export const SortModes = [
   {

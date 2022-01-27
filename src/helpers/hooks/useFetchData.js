@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { createItems, sortItems } from "helpers/functions";
-import data from "assets/data/productList.json";
+import { data } from "assets/data/productList";
 import {
   TotalItemCount,
   PageSizes,
@@ -21,10 +21,12 @@ const useFetchData = (
     setLoading(true);
     let allData = data;
     setTimeout(() => {
-      if (_sortMode !== SortModes[0].type) {
+      if (_sortMode !== SortModes[0].type && _pageNumber === 1) {
         //data has to be sorted by asc or desc order
-        allData = sortItems(_sortMode, _pageSize);
-        setItems(items.slice(0, _pageSize));
+
+        allData = sortItems(_sortMode, allData);
+        // setAllData(sortItems(_sortMode, allData));
+        setItems(allData.slice(0, _pageSize));
       } else {
         //either the data is not sorted, or it was sorted from the last page and now it is changing to a new page
         setItems(createItems(_pageNumber, _pageSize, allData));
@@ -33,7 +35,8 @@ const useFetchData = (
       setLoading(false);
     }, 1000);
   }
-  return [loading, items, totalPage, fetchData];
+
+  return [loading, items, totalPage];
 };
 
 export default useFetchData;

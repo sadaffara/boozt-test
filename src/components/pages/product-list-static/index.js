@@ -11,25 +11,16 @@ import {
 import useFetchData from "helpers/hooks/useFetchData";
 
 const StaticView = () => {
-  const [loading, items, totalPage, fetchData] = useFetchData(
-    SortModes[0].type,
-    PageSizes[1],
-    DefaultPageNumber
-  );
   const [sortMode, setSortMode] = useState(SortModes[0].type);
   const [selectedPageSize, setSelectedPageSize] = useState(PageSizes[1]);
   const [currentPage, setCurrentPage] = useState(1);
-
+  const [loading, items, totalPage] = useFetchData(
+    sortMode,
+    selectedPageSize,
+    currentPage
+  );
   const startIndex = (currentPage - 1) * selectedPageSize;
   const endIndex = currentPage * selectedPageSize;
-
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [selectedPageSize]);
-
-  useEffect(() => {
-    fetchData();
-  }, [selectedPageSize, currentPage, sortMode]);
 
   return (
     <div className="disable-text-selection">
@@ -55,7 +46,6 @@ const StaticView = () => {
           currentPage={currentPage}
           totalPage={totalPage}
           onChangePage={(page) => {
-            console.log("page", page);
             setCurrentPage(page);
             // fetchData(sortMode, selectedPageSize, page);
           }}
