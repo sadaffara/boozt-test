@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Row, Card, CardBody, CardSubtitle, CardText, Badge } from "reactstrap";
 import { Colxx } from "components/common/Colxx";
 import NoImg from "assets/images/NoImg.jpg";
+
 const DataCards = ({ product }) => {
   const [imgLoaded, setImgLoaded] = useState(false);
   const [imgSrc, setImgSrc] = useState(
@@ -33,20 +34,23 @@ const DataCards = ({ product }) => {
                   />
                 </Colxx>
               </Row>
-              <Badge
-                color="primary"
-                pill
-                className="position-absolute badge-top-left"
-              >
-                {product.brand_name}
-              </Badge>
+              {product.brand_name ? (
+                <Badge
+                  color="primary"
+                  pill
+                  className="position-absolute badge-top-left"
+                >
+                  {product.brand_name}
+                </Badge>
+              ) : null}
               <div className="img--card__container">
                 <CardSubtitle className="card--name__height">
                   {" "}
-                  Product Name: {product.product_name}
+                  Product Name:{" "}
+                  {product.product_name ? product.product_name : "No Name"}
                 </CardSubtitle>
                 <CardText className="text-muted text-small mb-0 font-weight-light">
-                  Price: {product.base_price}{" "}
+                  Price: {product.base_price ? product.base_price : "--"}{" "}
                   <span className="price--color"> $</span>
                 </CardText>
                 <CardText className="text-muted fw text-small mb-0 font-weight-light">
