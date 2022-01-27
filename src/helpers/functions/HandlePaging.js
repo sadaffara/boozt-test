@@ -5,8 +5,7 @@ const handlePaging = (_pageNumber, _pageSize, data) => {
   let currentIndex = (_pageNumber - 1) * _pageSize;
   let endIndex = currentIndex + _pageSize;
   let pageData = allData.slice(currentIndex, endIndex);
-  let paginationData = {};
-  paginationData = {
+  let paginationData = {
     pageData,
     startIndex: currentIndex,
     endIndex,
