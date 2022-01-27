@@ -1,7 +1,7 @@
 import BooztLogo from "assets/images/BooztLogo.png";
 import { Row } from "reactstrap";
 import { Colxx } from "./Colxx";
-
+import GitHubLogo from "assets/images/GitHubLogo.png";
 const TopNav = () => {
   return (
     <div className=" topnav">
@@ -13,7 +13,13 @@ const TopNav = () => {
             }}
             className="top-title cursor--pointer"
           >
-            Boozt Test
+            <img
+              className="mr-1 cursor--pointer mb-2"
+              src={GitHubLogo}
+              alt="GitHub"
+              width={"26px"}
+            />
+            <span>Boozt Test</span>
           </span>
         </Colxx>
         <Colxx lg={2} md={2} sm={4} xs={4} xxs={6}>
