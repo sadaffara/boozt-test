@@ -19,8 +19,8 @@ const useFetchData = (
   useEffect(() => {
     async function fetchData() {
       setLoading(true);
-      let allData = sortItems(_sortMode);
       setTimeout(() => {
+        let allData = sortItems(_sortMode);
         setItems(createItems(_pageNumber, _pageSize, allData));
         setTotalPage(TotalItemCount / _pageSize);
         setLoading(false);
