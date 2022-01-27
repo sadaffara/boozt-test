@@ -1,7 +1,18 @@
-const createItems = (_pageNumber, _pageSize, data) => {
+import { TotalItemCount } from "assets/constants/DefaultValues";
+
+const handlePaging = (_pageNumber, _pageSize, data) => {
   let allData = data;
   let currentIndex = (_pageNumber - 1) * _pageSize;
-  let pageData = allData.slice(currentIndex, currentIndex + _pageSize);
-  return pageData;
+  let endIndex = currentIndex + _pageSize;
+  let pageData = allData.slice(currentIndex, endIndex);
+  let paginationData = {};
+  paginationData = {
+    pageData,
+    startIndex: currentIndex,
+    endIndex,
+    totalPage: TotalItemCount / _pageSize,
+  };
+
+  return paginationData;
 };
-export default createItems;
+export default handlePaging;

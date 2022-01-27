@@ -6,6 +6,7 @@ import {
   TotalItemCount,
   PageSizes,
   SortModes,
+  DefaultPageNumber,
 } from "assets/constants/DefaultValues";
 import useFetchData from "helpers/hooks/useFetchData";
 
@@ -13,13 +14,11 @@ const StaticView = () => {
   const [sortMode, setSortMode] = useState(SortModes[0].type);
   const [selectedPageSize, setSelectedPageSize] = useState(PageSizes[1]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [loading, items, totalPage] = useFetchData(
+  const [loading, items, totalPage, rangeIndex] = useFetchData(
     sortMode,
     selectedPageSize,
     currentPage
   );
-  const startIndex = (currentPage - 1) * selectedPageSize;
-  const endIndex = currentPage * selectedPageSize;
 
   return (
     <div className="disable-text-selection">
@@ -28,11 +27,14 @@ const StaticView = () => {
           setCurrentPage(1);
           setSortMode(sort);
         }}
-        changePageSize={(_pageSize) => setSelectedPageSize(_pageSize)}
+        changePageSize={(_pageSize) => {
+          setCurrentPage(DefaultPageNumber);
+          setSelectedPageSize(_pageSize);
+        }}
         selectedPageSize={selectedPageSize}
         totalItemCount={TotalItemCount}
-        startIndex={startIndex}
-        endIndex={endIndex}
+        startIndex={rangeIndex.startIndex}
+        endIndex={rangeIndex.endIndex}
         sortMode={sortMode}
         itemsLength={items ? items.length : 0}
         pageSizes={PageSizes}
