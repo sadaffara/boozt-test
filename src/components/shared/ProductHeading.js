@@ -32,13 +32,13 @@ const ProductHeading = ({
         </div>
         <Separator />
         <div className="mb-2">
-          <Button
-            color="empty"
-            className="pt-0 pl-0 d-inline-block d-md-none"
+          <DropdownToggle
             onClick={() => setDisplayOptionsIsOpen(!displayOptionsIsOpen)}
-          >
-            <DropdownToggle caret color="secondary" size="xs"></DropdownToggle>
-          </Button>
+            caret
+            color="secondary"
+            size="xs"
+            className="mb-2 d-inline-block d-md-none"
+          ></DropdownToggle>
           <Collapse
             isOpen={displayOptionsIsOpen}
             className="d-md-block"
