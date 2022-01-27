@@ -10,15 +10,6 @@ const App = () => {
       </BrowserRouter>
     </div>
   );
-  // return (
-  //   <div className="App">
-  //     <TopNav />
-
-  //     <div className="background--color mt-4 content--pos mt-1 container-fluid">
-  //       <AppRoutes />
-  //     </div>
-  //   </div>
-  // );
 };
 
 export default App;
