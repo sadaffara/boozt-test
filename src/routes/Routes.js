@@ -7,7 +7,6 @@ const StaticProductList = React.lazy(() =>
 );
 
 const AppRoutes = () => {
-  console.log("routes");
   return (
     <Suspense fallback={<Loading />}>
       <Routes basename="/boozt-test">
