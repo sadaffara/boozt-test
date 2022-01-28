@@ -45,13 +45,13 @@ const ProductHeading = ({
             id="displayOptions"
           >
             <div className="d-block d-md-inline-block pt-1">
-              <UncontrolledDropdown className="mr-1 float-md-left btn-group mb-1">
+              <UncontrolledDropdown className="mr-4 float-md-left btn-group mb-2">
                 <SortDropdown
                   sortMode={sortMode}
                   sortProducts={(type) => sortProducts(type)}
                 />
               </UncontrolledDropdown>
-              <UncontrolledDropdown className="mr-1 ml-3 float-md-left btn-group mb-1">
+              <UncontrolledDropdown className="mr-1 float-md-left btn-group">
                 <CurrncyDropdown
                   selectedCurrency={selectedCurrency}
                   setSelectedCurrency={(_currency) => {
