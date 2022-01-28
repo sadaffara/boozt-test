@@ -61,7 +61,7 @@ export const CurrncyDropdown = ({ setSelectedCurrency, selectedCurrency }) => {
       <DropdownToggle caret color="outline-dark" size="xs">
         Currency: {selectedCurrency.code} {selectedCurrency.symbol}
       </DropdownToggle>
-      <DropdownMenu start>
+      <DropdownMenu start={"true"}>
         {Object.keys(Currencies).map((key) => {
           return (
             <DropdownItem
