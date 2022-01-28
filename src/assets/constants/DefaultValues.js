@@ -43,7 +43,7 @@ export const Currencies = {
   europe: {
     name: "Euro",
     symbol: "€",
-    code: "EU",
+    code: "EUR",
     convertParam: 0.9,
   },
 };
