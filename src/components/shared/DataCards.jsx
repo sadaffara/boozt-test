@@ -1,4 +1,5 @@
 import React from "react";
+
 import { Row, Card, CardBody, CardSubtitle, CardText, Badge } from "reactstrap";
 import { Colxx } from "components/common/Colxx";
 import ImageCard from "./ImageCard";
@@ -25,9 +26,8 @@ const DataCards = ({ product }) => {
                 </Badge>
               ) : null}
               <div className="img--card__container">
-                <CardSubtitle className="card--name__height">
+                <CardSubtitle className="card--name__height mt-1">
                   {" "}
-                  Product Name:{" "}
                   {product.product_name ? product.product_name : "No Name"}
                 </CardSubtitle>
                 <CardText className="text-muted text-small mb-0 font-weight-light">

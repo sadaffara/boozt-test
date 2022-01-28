@@ -26,3 +26,21 @@ export const SortModes = {
   },
 };
 export const DefaultPageNumber = 1;
+
+export const Currencies = {
+  sweden: {
+    name: "Krona",
+    symbol: "kr",
+    code: "SEK",
+  },
+  us: {
+    name: "Dollars",
+    symbol: "$",
+    code: "USD",
+  },
+  europe: {
+    name: "Euro",
+    symbol: "€",
+    code: "EU",
+  },
+};

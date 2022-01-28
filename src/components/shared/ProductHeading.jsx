@@ -2,14 +2,11 @@ import React, { useState } from "react";
 import {
   Row,
   UncontrolledDropdown,
-  DropdownMenu,
-  DropdownItem,
   DropdownToggle,
   Collapse,
 } from "reactstrap";
 import { Colxx, Separator } from "components/common/Colxx";
-import { SortModes } from "assets/constants/DefaultValues";
-import { findSortModeName } from "helpers/functions";
+import { SortDropdown, PageSizeDropdown } from "./Dropdowns";
 
 const ProductHeading = ({
   changePageSize,
@@ -47,41 +44,20 @@ const ProductHeading = ({
           >
             <div className="d-block d-md-inline-block pt-1">
               <UncontrolledDropdown className="mr-1 float-md-left btn-group mb-1">
-                <DropdownToggle caret color="primary" size="xs">
-                  Sort By Price: {findSortModeName(sortMode)}
-                </DropdownToggle>
-                <DropdownMenu end>
-                  {Object.keys(SortModes).map((key) => {
-                    return (
-                      <DropdownItem
-                        key={key}
-                        onClick={() => sortProducts(SortModes[key].type)}
-                      >
-                        {SortModes[key].name}
-                      </DropdownItem>
-                    );
-                  })}
-                </DropdownMenu>
+                <SortDropdown
+                  sortMode={sortMode}
+                  sortProducts={(type) => sortProducts(type)}
+                />
               </UncontrolledDropdown>
             </div>
             <div className="float-md-right pt-1">
               <span className="text-muted text-small mr-1">{`${startIndex}-${endIndex} of ${totalItemCount} `}</span>
               <UncontrolledDropdown className="d-inline-block">
-                <DropdownToggle caret color="outline-dark" size="xs">
-                  {selectedPageSize}
-                </DropdownToggle>
-                <DropdownMenu end>
-                  {Object.keys(pageSizes).map((key) => {
-                    return (
-                      <DropdownItem
-                        key={key}
-                        onClick={() => changePageSize(pageSizes[key])}
-                      >
-                        {pageSizes[key]}
-                      </DropdownItem>
-                    );
-                  })}
-                </DropdownMenu>
+                <PageSizeDropdown
+                  selectedPageSize={selectedPageSize}
+                  pageSizes={pageSizes}
+                  changePageSize={(size) => changePageSize(size)}
+                />
               </UncontrolledDropdown>
             </div>
           </Collapse>
