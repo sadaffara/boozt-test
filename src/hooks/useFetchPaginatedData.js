@@ -6,7 +6,7 @@ import {
   DefaultPageNumber,
 } from "assets/constants/DefaultValues";
 
-const useFetchData = (
+const useFetchPaginatedData = (
   _sortMode = SortModes.all.type,
   _pageSize = PageSizes.md,
   _pageNumber = DefaultPageNumber
@@ -43,4 +43,4 @@ const useFetchData = (
   return [loading, items, totalPage, rangeIndex];
 };
 
-export default useFetchData;
+export default useFetchPaginatedData;

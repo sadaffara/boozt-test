@@ -9,14 +9,14 @@ import {
   DefaultPageNumber,
   Currencies,
 } from "assets/constants/DefaultValues";
-import useFetchData from "helpers/hooks/useFetchData";
+import useFetchPaginatedData from "hooks/useFetchPaginatedData";
 
 const StaticView = () => {
   const [sortMode, setSortMode] = useState(SortModes.all.type);
   const [selectedPageSize, setSelectedPageSize] = useState(PageSizes.md);
   const [currentPage, setCurrentPage] = useState(DefaultPageNumber);
   const [selectedCurrency, setSelectedCurrency] = useState(Currencies.us);
-  const [loading, items, totalPage, rangeIndex] = useFetchData(
+  const [loading, items, totalPage, rangeIndex] = useFetchPaginatedData(
     sortMode,
     selectedPageSize,
     currentPage
