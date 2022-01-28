@@ -49,6 +49,7 @@ export const PageSizeDropdown = ({
     </>
   );
 };
+
 export const CurrncyDropdown = ({ setSelectedCurrency, selectedCurrency }) => {
   return (
     <>
@@ -64,7 +65,8 @@ export const CurrncyDropdown = ({ setSelectedCurrency, selectedCurrency }) => {
                 setSelectedCurrency(Currencies[key]);
               }}
             >
-              {Currencies[key].name} {Currencies[key].symbol}
+              {Currencies[key].name}{" "}
+              <span className="price--color">{Currencies[key].symbol}</span>
             </DropdownItem>
           );
         })}
