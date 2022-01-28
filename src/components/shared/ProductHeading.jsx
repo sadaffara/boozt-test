@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Row, DropdownToggle, Collapse } from "reactstrap";
-import { Colxx, Separator } from "components/common/Colxx";
+import { Colxx } from "components/common/Colxx";
 import { SortDropdown, PageSizeDropdown, CurrncyDropdown } from "./Dropdowns";
 
 const ProductHeading = ({
@@ -23,8 +23,7 @@ const ProductHeading = ({
         <div className="mb-2">
           <h3>Product List</h3>
         </div>
-        <Separator />
-        <div className="mb-2">
+        <div className="mb-2 mt-4">
           <DropdownToggle
             onClick={() => setDisplayOptionsIsOpen(!displayOptionsIsOpen)}
             caret
@@ -63,7 +62,6 @@ const ProductHeading = ({
             </div>
           </Collapse>
         </div>
-        <Separator className="mb-5" />
       </Colxx>
     </Row>
   );
