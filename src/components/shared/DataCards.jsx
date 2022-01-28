@@ -4,8 +4,6 @@ import { Colxx } from "components/common/Colxx";
 import ImageCard from "./ImageCard";
 
 const DataCards = ({ product }) => {
-
-
   return (
     <Colxx cla sm="6" lg="4" xl="3" className="mb-3 " key={product.id}>
       <Card className="card--shadow">
@@ -14,7 +12,7 @@ const DataCards = ({ product }) => {
             <div className="img--card">
               <Row className="justify-content-center">
                 <Colxx lg={8} md={6} sm={6} xs={6} xxs={8}>
-                <ImageCard  product={product} />
+                  <ImageCard product={product} />
                 </Colxx>
               </Row>
               {product.brand_name ? (
