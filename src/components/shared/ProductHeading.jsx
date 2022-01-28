@@ -6,7 +6,7 @@ import {
   Collapse,
 } from "reactstrap";
 import { Colxx, Separator } from "components/common/Colxx";
-import { SortDropdown, PageSizeDropdown } from "./Dropdowns";
+import { SortDropdown, PageSizeDropdown, CurrncyDropdown } from "./Dropdowns";
 
 const ProductHeading = ({
   changePageSize,
@@ -17,6 +17,8 @@ const ProductHeading = ({
   pageSizes,
   sortProducts,
   sortMode,
+  selectedCurrency,
+  setSelectedCurrency,
 }) => {
   const [displayOptionsIsOpen, setDisplayOptionsIsOpen] = useState(false);
 
@@ -47,6 +49,14 @@ const ProductHeading = ({
                 <SortDropdown
                   sortMode={sortMode}
                   sortProducts={(type) => sortProducts(type)}
+                />
+              </UncontrolledDropdown>
+              <UncontrolledDropdown className="mr-1 ml-3 float-md-left btn-group mb-1">
+                <CurrncyDropdown
+                  selectedCurrency={selectedCurrency}
+                  setSelectedCurrency={(_currency) => {
+                    setSelectedCurrency(_currency);
+                  }}
                 />
               </UncontrolledDropdown>
             </div>

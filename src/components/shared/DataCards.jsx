@@ -3,8 +3,9 @@ import React from "react";
 import { Row, Card, CardBody, CardSubtitle, CardText, Badge } from "reactstrap";
 import { Colxx } from "components/common/Colxx";
 import ImageCard from "./ImageCard";
+import { convertCurrency } from "helpers/functions";
 
-const DataCards = ({ product }) => {
+const DataCards = ({ product, selectedCurrency }) => {
   return (
     <Colxx cla sm="6" lg="4" xl="3" className="mb-3 " key={product.id}>
       <Card className="card--shadow">
@@ -31,8 +32,16 @@ const DataCards = ({ product }) => {
                   {product.product_name ? product.product_name : "No Name"}
                 </CardSubtitle>
                 <CardText className="text-muted text-small mb-0 font-weight-light">
-                  Price: {product.base_price ? product.base_price : "--"}{" "}
-                  <span className="price--color"> $</span>
+                  Price:{" "}
+                  {convertCurrency(selectedCurrency.code, product.base_price)
+                    .price
+                    ? convertCurrency(selectedCurrency.code, product.base_price)
+                        .price
+                    : "--"}{" "}
+                  <span className="price--color">
+                    {" "}
+                    {selectedCurrency.symbol}
+                  </span>
                 </CardText>
                 <CardText className="text-muted fw text-small mb-0 font-weight-light">
                   <span className="text--gold">#{product.index + 1}</span>

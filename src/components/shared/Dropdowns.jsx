@@ -1,5 +1,5 @@
 import { DropdownMenu, DropdownItem, DropdownToggle } from "reactstrap";
-import { SortModes } from "assets/constants/DefaultValues";
+import { SortModes, Currencies } from "assets/constants/DefaultValues";
 import { findSortModeName } from "helpers/functions";
 
 export const SortDropdown = ({ sortMode, sortProducts }) => {
@@ -42,6 +42,29 @@ export const PageSizeDropdown = ({
               onClick={() => changePageSize(pageSizes[key])}
             >
               {pageSizes[key]}
+            </DropdownItem>
+          );
+        })}
+      </DropdownMenu>
+    </>
+  );
+};
+export const CurrncyDropdown = ({ setSelectedCurrency, selectedCurrency }) => {
+  return (
+    <>
+      <DropdownToggle caret color="outline-dark" size="xs">
+        Currency: {selectedCurrency.code} {selectedCurrency.symbol}
+      </DropdownToggle>
+      <DropdownMenu start>
+        {Object.keys(Currencies).map((key) => {
+          return (
+            <DropdownItem
+              key={key}
+              onClick={() => {
+                setSelectedCurrency(Currencies[key]);
+              }}
+            >
+              {Currencies[key].name} {Currencies[key].symbol}
             </DropdownItem>
           );
         })}

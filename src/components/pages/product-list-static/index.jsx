@@ -7,13 +7,15 @@ import {
   PageSizes,
   SortModes,
   DefaultPageNumber,
+  Currencies,
 } from "assets/constants/DefaultValues";
 import useFetchData from "helpers/hooks/useFetchData";
 
 const StaticView = () => {
   const [sortMode, setSortMode] = useState(SortModes.all.type);
   const [selectedPageSize, setSelectedPageSize] = useState(PageSizes.sm);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(DefaultPageNumber);
+  const [selectedCurrency, setSelectedCurrency] = useState(Currencies.us);
   const [loading, items, totalPage, rangeIndex] = useFetchData(
     sortMode,
     selectedPageSize,
@@ -38,12 +40,17 @@ const StaticView = () => {
         sortMode={sortMode}
         itemsLength={items ? items.length : 0}
         pageSizes={PageSizes}
+        selectedCurrency={selectedCurrency}
+        setSelectedCurrency={(_currency) => {
+          setSelectedCurrency(_currency);
+        }}
       />
       {loading ? (
         <Loading label="Loading Product List" />
       ) : (
         <ProductListing
           items={items}
+          selectedCurrency={selectedCurrency}
           currentPage={currentPage}
           totalPage={totalPage}
           onChangePage={(page) => {

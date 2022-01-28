@@ -32,15 +32,18 @@ export const Currencies = {
     name: "Krona",
     symbol: "kr",
     code: "SEK",
+    convertParam: 9.45,
   },
   us: {
     name: "Dollars",
     symbol: "$",
     code: "USD",
+    convertParam: 1,
   },
   europe: {
     name: "Euro",
     symbol: "€",
     code: "EU",
+    convertParam: 0.9,
   },
 };
