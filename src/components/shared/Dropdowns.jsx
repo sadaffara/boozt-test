@@ -1,10 +1,15 @@
-import { DropdownMenu, DropdownItem, DropdownToggle } from "reactstrap";
+import {
+  DropdownMenu,
+  DropdownItem,
+  DropdownToggle,
+  UncontrolledDropdown,
+} from "reactstrap";
 import { SortModes, Currencies } from "assets/constants/DefaultValues";
 import { findSortModeName } from "helpers/functions";
 
 export const SortDropdown = ({ sortMode, sortProducts }) => {
   return (
-    <>
+    <UncontrolledDropdown className="mr-4 float-md-left btn-group mb-2">
       <DropdownToggle caret color="primary" size="xs">
         Sort By Price: {findSortModeName(sortMode)}
       </DropdownToggle>
@@ -20,7 +25,7 @@ export const SortDropdown = ({ sortMode, sortProducts }) => {
           );
         })}
       </DropdownMenu>
-    </>
+    </UncontrolledDropdown>
   );
 };
 
@@ -30,7 +35,7 @@ export const PageSizeDropdown = ({
   pageSizes,
 }) => {
   return (
-    <>
+    <UncontrolledDropdown className="d-inline-block">
       <DropdownToggle caret color="outline-dark" size="xs">
         {selectedPageSize}
       </DropdownToggle>
@@ -46,13 +51,13 @@ export const PageSizeDropdown = ({
           );
         })}
       </DropdownMenu>
-    </>
+    </UncontrolledDropdown>
   );
 };
 
 export const CurrncyDropdown = ({ setSelectedCurrency, selectedCurrency }) => {
   return (
-    <>
+    <UncontrolledDropdown className="mr-1 float-md-left btn-group">
       <DropdownToggle caret color="outline-dark" size="xs">
         Currency: {selectedCurrency.code} {selectedCurrency.symbol}
       </DropdownToggle>
@@ -71,6 +76,6 @@ export const CurrncyDropdown = ({ setSelectedCurrency, selectedCurrency }) => {
           );
         })}
       </DropdownMenu>
-    </>
+    </UncontrolledDropdown>
   );
 };

@@ -1,10 +1,5 @@
 import React, { useState } from "react";
-import {
-  Row,
-  UncontrolledDropdown,
-  DropdownToggle,
-  Collapse,
-} from "reactstrap";
+import { Row, DropdownToggle, Collapse } from "reactstrap";
 import { Colxx, Separator } from "components/common/Colxx";
 import { SortDropdown, PageSizeDropdown, CurrncyDropdown } from "./Dropdowns";
 
@@ -45,30 +40,26 @@ const ProductHeading = ({
             id="displayOptions"
           >
             <div className="d-block d-md-inline-block pt-1">
-              <UncontrolledDropdown className="mr-4 float-md-left btn-group mb-2">
-                <SortDropdown
-                  sortMode={sortMode}
-                  sortProducts={(type) => sortProducts(type)}
-                />
-              </UncontrolledDropdown>
-              <UncontrolledDropdown className="mr-1 float-md-left btn-group">
-                <CurrncyDropdown
-                  selectedCurrency={selectedCurrency}
-                  setSelectedCurrency={(_currency) => {
-                    setSelectedCurrency(_currency);
-                  }}
-                />
-              </UncontrolledDropdown>
+              <SortDropdown
+                sortMode={sortMode}
+                sortProducts={(type) => sortProducts(type)}
+              />
+
+              <CurrncyDropdown
+                selectedCurrency={selectedCurrency}
+                setSelectedCurrency={(_currency) => {
+                  setSelectedCurrency(_currency);
+                }}
+              />
             </div>
             <div className="float-md-right pt-1">
               <span className="text-muted text-small mr-1">{`${startIndex}-${endIndex} of ${totalItemCount} `}</span>
-              <UncontrolledDropdown className="d-inline-block">
-                <PageSizeDropdown
-                  selectedPageSize={selectedPageSize}
-                  pageSizes={pageSizes}
-                  changePageSize={(size) => changePageSize(size)}
-                />
-              </UncontrolledDropdown>
+
+              <PageSizeDropdown
+                selectedPageSize={selectedPageSize}
+                pageSizes={pageSizes}
+                changePageSize={(size) => changePageSize(size)}
+              />
             </div>
           </Collapse>
         </div>

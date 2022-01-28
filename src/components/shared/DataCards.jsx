@@ -1,5 +1,4 @@
 import React from "react";
-
 import { Row, Card, CardBody, CardSubtitle, CardText, Badge } from "reactstrap";
 import { Colxx } from "components/common/Colxx";
 import ImageCard from "./ImageCard";
