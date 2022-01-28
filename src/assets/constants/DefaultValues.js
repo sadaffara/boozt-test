@@ -19,7 +19,7 @@ export const SortModes = {
     type: 1,
     fullName: "Ascending",
   },
-  dec: {
+  desc: {
     name: "Desc",
     type: -1,
     fullName: "Descending",

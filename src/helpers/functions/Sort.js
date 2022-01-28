@@ -18,11 +18,12 @@ export const sortItems = (sortMode) => {
 };
 
 export const findSortModeName = (type) => {
-  let name = "";
-  Object.keys(SortModes).map((key) => {
-    if (SortModes[key].type === type) {
-      name = SortModes[key].name;
-    }
-  });
-  return name;
+  const selectedKey = Object.keys(SortModes).find(
+    (key) => SortModes[key].type === type
+  );
+  if (selectedKey) {
+    return SortModes[selectedKey].name;
+  } else {
+    return SortModes.all.name;
+  }
 };
