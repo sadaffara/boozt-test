@@ -9,9 +9,8 @@ const handlePaging = (_pageNumber, _pageSize, data) => {
     pageData,
     startIndex: currentIndex,
     endIndex,
-    totalPage: TotalItemCount / _pageSize,
+    totalPage: Math.trunc(TotalItemCount / _pageSize),
   };
-
   return paginationData;
 };
 export default handlePaging;
