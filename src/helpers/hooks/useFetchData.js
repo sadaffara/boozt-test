@@ -8,7 +8,7 @@ import {
 
 const useFetchData = (
   _sortMode = SortModes.all.type,
-  _pageSize = PageSizes.sm,
+  _pageSize = PageSizes.md,
   _pageNumber = DefaultPageNumber
 ) => {
   const [loading, setLoading] = useState(true);
@@ -16,7 +16,7 @@ const useFetchData = (
   const [items, setItems] = useState([]);
   const [rangeIndex, setRangeIndex] = useState({
     startIndex: 0,
-    endIndex: PageSizes.sm,
+    endIndex: PageSizes.md,
   });
 
   useEffect(() => {
