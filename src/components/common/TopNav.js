@@ -27,7 +27,7 @@ const TopNav = () => {
             onClick={() => {
               window.open("https://booztgroup.com", "_blank");
             }}
-            className="logo cursor--pointer"
+            className="logo cursor--pointer mt-1"
             src={BooztLogo}
             alt="Boozt"
           />

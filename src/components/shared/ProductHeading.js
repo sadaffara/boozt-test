@@ -37,7 +37,9 @@ const ProductHeading = ({
             color="secondary"
             size="xs"
             className="mb-2 d-inline-block d-md-none"
-          ></DropdownToggle>
+          >
+            Menu
+          </DropdownToggle>
           <Collapse
             isOpen={displayOptionsIsOpen}
             className="d-md-block"
