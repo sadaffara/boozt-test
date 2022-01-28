@@ -1,0 +1,16 @@
+This document is written by the author, Sadaf Farajian:
+
+This is a test task I did for Boozt. I would like to explain certain things about it.
+
+1. The task was for one single page, but I purposely used react-router to show the usage of routing.
+
+2. There are some mixins in my sass folders that are not really used, but they are very useful in most big projects. I put them there as a sample of what I could do.
+
+3. The app is deployed on: https://sadaffara.github.io/boozt-test/
+
+4. The GitHub repository address is: https://github.com/sadaffara/boozt-test/
+You can also access it directly from the app's top navbar on the left, where it says 'Boozt Test'
+
+5. Since there was no backend for the project, I had to simulate the server's behavior on the client's side. That is why I had to write a function called 'copyData' to copy the actual raw data without its reference every time I needed to use it, to ensure the actual data will not be damaged.
+
+6. I added an 'index' property to each element of the product list data, which numbers it from 0 to 1999, and I showed the products' numbers on them with a '#' sign before it. I did this so you could be able to check the paging of the data with ease, you could see how many products you see on each page and the next page follows correctly. If, however, you sort the data, the indexes get mixed up but the prices get sorted.
