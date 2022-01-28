@@ -51,16 +51,16 @@ const ProductHeading = ({
                   Sort By Price: {findSortModeName(sortMode)}
                 </DropdownToggle>
                 <DropdownMenu end>
-                  {SortModes.map((item) => (
-                    <DropdownItem
-                      key={item.type}
-                      onClick={() => {
-                        sortProducts(item.type);
-                      }}
-                    >
-                      {item.fullName}
-                    </DropdownItem>
-                  ))}
+                  {Object.keys(SortModes).map((key) => {
+                    return (
+                      <DropdownItem
+                        key={key}
+                        onClick={() => sortProducts(SortModes[key].type)}
+                      >
+                        {SortModes[key].name}
+                      </DropdownItem>
+                    );
+                  })}
                 </DropdownMenu>
               </UncontrolledDropdown>
             </div>
@@ -71,13 +71,13 @@ const ProductHeading = ({
                   {selectedPageSize}
                 </DropdownToggle>
                 <DropdownMenu end>
-                  {pageSizes.map((size, index) => {
+                  {Object.keys(pageSizes).map((key) => {
                     return (
                       <DropdownItem
-                        key={index}
-                        onClick={() => changePageSize(size)}
+                        key={key}
+                        onClick={() => changePageSize(pageSizes[key])}
                       >
-                        {size}
+                        {pageSizes[key]}
                       </DropdownItem>
                     );
                   })}

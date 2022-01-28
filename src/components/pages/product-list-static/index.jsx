@@ -11,8 +11,8 @@ import {
 import useFetchData from "helpers/hooks/useFetchData";
 
 const StaticView = () => {
-  const [sortMode, setSortMode] = useState(SortModes[0].type);
-  const [selectedPageSize, setSelectedPageSize] = useState(PageSizes[1]);
+  const [sortMode, setSortMode] = useState(SortModes.all.type);
+  const [selectedPageSize, setSelectedPageSize] = useState(PageSizes.sm);
   const [currentPage, setCurrentPage] = useState(1);
   const [loading, items, totalPage, rangeIndex] = useFetchData(
     sortMode,

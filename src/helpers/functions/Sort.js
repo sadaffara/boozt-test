@@ -4,9 +4,9 @@ import { copyData } from "helpers/functions";
 export const sortItems = (sortMode) => {
   const rawData = copyData();
   let sortedData = copyData();
-  if (sortMode !== SortModes[0].type) {
+  if (sortMode !== SortModes.all.type) {
     sortedData = rawData.sort((a, b) => {
-      if (sortMode === SortModes[1].type) {
+      if (sortMode === SortModes.asc.type) {
         return parseFloat(a.base_price) - parseFloat(b.base_price);
       } else {
         return parseFloat(b.base_price) - parseFloat(a.base_price);
@@ -18,9 +18,11 @@ export const sortItems = (sortMode) => {
 };
 
 export const findSortModeName = (type) => {
-  for (let i = 0; i <= SortModes.length; i++) {
-    if (type === SortModes[i].type) {
-      return SortModes[i].name;
+  let name = "";
+  Object.keys(SortModes).map((key) => {
+    if (SortModes[key].type === type) {
+      name = SortModes[key].name;
     }
-  }
+  });
+  return name;
 };

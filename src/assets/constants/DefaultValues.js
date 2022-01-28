@@ -1,25 +1,14 @@
 import { data } from "assets/data/productList";
 
-export const PageSizes = [4, 8, 12, 16];
+export const PageSizes = {
+  sm: 4,
+  md: 8,
+  lg: 12,
+  xlg: 16,
+};
 export const TotalItemCount = data.length;
-export const SortModes = [
-  {
-    name: "All",
-    type: 0,
-    fullName: "All Results",
-  },
-  {
-    name: "Asc",
-    type: 1,
-    fullName: "Ascending",
-  },
-  {
-    name: "Desc",
-    type: -1,
-    fullName: "Descending",
-  },
-];
-export const SortModes1 = {
+
+export const SortModes = {
   all: {
     name: "All",
     type: 0,
