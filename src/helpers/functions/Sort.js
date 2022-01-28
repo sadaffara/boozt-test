@@ -7,9 +7,9 @@ export const sortItems = (sortMode) => {
   if (sortMode !== SortModes.all.type) {
     sortedData = rawData.sort((a, b) => {
       if (sortMode === SortModes.asc.type) {
-        return parseFloat(a.base_price) - parseFloat(b.base_price);
+        return parseFloat(a.actual_price) - parseFloat(b.actual_price);
       } else {
-        return parseFloat(b.base_price) - parseFloat(a.base_price);
+        return parseFloat(b.actual_price) - parseFloat(a.actual_price);
       }
     });
   }

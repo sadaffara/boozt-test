@@ -5,7 +5,9 @@ export const convertCurrency = (code, price) => {
   Object.keys(Currencies).forEach((key) => {
     if (code === Currencies[key].code) {
       convertedPrice = {
-        price: numberWithCommas(price * Currencies[key].convertParam),
+        price: numberWithCommas(
+          (price * Currencies[key].convertParam).toFixed()
+        ),
         symbol: Currencies[key].symbol,
       };
     }

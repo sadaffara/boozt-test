@@ -31,12 +31,34 @@ const DataCards = ({ product, selectedCurrency }) => {
                   {" "}
                   {product.product_name ? product.product_name : "No Name"}
                 </CardSubtitle>
-                <CardText className="text-muted text-small mb-0 font-weight-light">
-                  Price:{" "}
-                  {convertCurrency(selectedCurrency.code, product.base_price)
+                {product.base_price > product.actual_price ? (
+                  <CardText className="text-muted text-small mb-0 font-weight-light">
+                    Price:{" "}
+                    <del>
+                      {convertCurrency(
+                        selectedCurrency.code,
+                        product.base_price
+                      ).price
+                        ? convertCurrency(
+                            selectedCurrency.code,
+                            product.base_price
+                          ).price
+                        : "--"}{" "}
+                      <span className="price--color">
+                        {" "}
+                        {selectedCurrency.symbol}
+                      </span>
+                    </del>
+                  </CardText>
+                ) : null}
+                <CardText className="text-muted text-small mb-0 font-weight-light ">
+                  Sale Price:{" "}
+                  {convertCurrency(selectedCurrency.code, product.actual_price)
                     .price
-                    ? convertCurrency(selectedCurrency.code, product.base_price)
-                        .price
+                    ? convertCurrency(
+                        selectedCurrency.code,
+                        product.actual_price
+                      ).price
                     : "--"}{" "}
                   <span className="price--color">
                     {" "}

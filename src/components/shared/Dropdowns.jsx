@@ -15,7 +15,7 @@ export const SortDropdown = ({ sortMode, sortProducts }) => {
               key={key}
               onClick={() => sortProducts(SortModes[key].type)}
             >
-              {SortModes[key].name}
+              {SortModes[key].fullName}
             </DropdownItem>
           );
         })}
