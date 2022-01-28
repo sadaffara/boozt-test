@@ -28,18 +28,19 @@ export const SortModes = {
 export const DefaultPageNumber = 1;
 
 export const Currencies = {
-  sweden: {
-    name: "Krona",
-    symbol: "kr",
-    code: "SEK",
-    convertParam: 9.45,
-  },
   us: {
     name: "Dollars",
     symbol: "$",
     code: "USD",
     convertParam: 1,
   },
+  sweden: {
+    name: "Krona",
+    symbol: "kr",
+    code: "SEK",
+    convertParam: 9.45,
+  },
+
   europe: {
     name: "Euro",
     symbol: "€",

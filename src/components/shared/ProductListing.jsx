@@ -3,7 +3,7 @@ import { Row } from "reactstrap";
 import Pagination from "components/shared/Pagination";
 import DataCard from "components/shared/DataCards";
 
-const ListPageListing = ({
+const ProductListing = ({
   items,
   currentPage,
   totalPage,
@@ -24,10 +24,10 @@ const ListPageListing = ({
       <Pagination
         currentPage={currentPage}
         totalPage={totalPage}
-        onChangePage={(i) => onChangePage(i)}
+        onChangePage={(page) => onChangePage(page)}
       />
     </Row>
   );
 };
 
-export default React.memo(ListPageListing);
+export default React.memo(ProductListing);

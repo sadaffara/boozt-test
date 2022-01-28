@@ -6,7 +6,7 @@ import { convertCurrency } from "helpers/functions";
 
 const DataCards = ({ product, selectedCurrency }) => {
   return (
-    <Colxx cla sm="6" lg="4" xl="3" className="mb-3 " key={product.id}>
+    <Colxx cla sm="6" lg="4" xl="3" className="mb-3 ">
       <Card className="card--shadow">
         <CardBody>
           <Row>
@@ -34,10 +34,7 @@ const DataCards = ({ product, selectedCurrency }) => {
                   <CardText className="text-muted text-small mb-0 font-weight-light">
                     Price:{" "}
                     <del>
-                      {convertCurrency(
-                        selectedCurrency.code,
-                        product.base_price
-                      ).price
+                      {product.base_price && product.base_price > 0
                         ? convertCurrency(
                             selectedCurrency.code,
                             product.base_price
@@ -59,8 +56,7 @@ const DataCards = ({ product, selectedCurrency }) => {
                     ? "Discounted Price"
                     : "Price"}
                   :{" "}
-                  {convertCurrency(selectedCurrency.code, product.actual_price)
-                    .price
+                  {product.actual_price && product.actual_price > 0
                     ? convertCurrency(
                         selectedCurrency.code,
                         product.actual_price
