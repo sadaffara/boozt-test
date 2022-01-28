@@ -5,10 +5,14 @@ export const convertCurrency = (code, price) => {
   Object.keys(Currencies).forEach((key) => {
     if (code === Currencies[key].code) {
       convertedPrice = {
-        price: price * Currencies[key].convertParam,
+        price: numberWithCommas(price * Currencies[key].convertParam),
         symbol: Currencies[key].symbol,
       };
     }
   });
   return convertedPrice;
+};
+
+const numberWithCommas = (x) => {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 };
