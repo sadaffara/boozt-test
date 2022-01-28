@@ -17,13 +17,6 @@ export const sortItems = (sortMode) => {
   return sortedData;
 };
 
-export const findSortModeName = (type) => {
-  const selectedKey = Object.keys(SortModes).find(
-    (key) => SortModes[key].type === type
-  );
-  if (selectedKey) {
-    return SortModes[selectedKey].name;
-  } else {
-    return SortModes.all.name;
-  }
+export const findSortModeName = (type = 0) => {
+  return Object.entries(SortModes).find(([, s]) => s.type === type)[1].name;
 };
