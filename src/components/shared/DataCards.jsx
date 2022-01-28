@@ -50,9 +50,16 @@ const DataCards = ({ product, selectedCurrency }) => {
                       </span>
                     </del>
                   </CardText>
-                ) : null}
+                ) : (
+                  <CardText className="text-muted text-small mb-0 font-weight-light">
+                    No Sale
+                  </CardText>
+                )}
                 <CardText className="text-muted text-small mb-0 font-weight-light ">
-                  Sale Price:{" "}
+                  {product.base_price > product.actual_price
+                    ? "Sale Price"
+                    : "Price"}
+                  :{" "}
                   {convertCurrency(selectedCurrency.code, product.actual_price)
                     .price
                     ? convertCurrency(
