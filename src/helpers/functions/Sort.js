@@ -19,8 +19,10 @@ export const sortItems = (sortMode) => {
 
 export const findSortModeName = (type) => {
   let name = "";
-  Object.keys(SortModes).map((key) =>
-    SortModes[key].type === type ? (name = SortModes[key].name) : (name = "")
-  );
+  Object.keys(SortModes).map((key) => {
+    if (SortModes[key].type === type) {
+      name = SortModes[key].name;
+    }
+  });
   return name;
 };
